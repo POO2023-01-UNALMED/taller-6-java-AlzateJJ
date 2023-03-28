@@ -5,8 +5,8 @@ public class Vehiculo {
     private int puertas;
     private int velocidadMaxima;
     private String nombre;
-    private double precio;
-    private double peso;
+    private int precio;
+    private int peso;
     private String traccion;
     private Fabricante fabricante;
     private static int CantidadVehiculos;
@@ -65,7 +65,7 @@ public class Vehiculo {
     }
     
     //precio
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
     	this.precio=precio;
     }
     public double getPrecio() {
@@ -76,7 +76,7 @@ public class Vehiculo {
     public double getPeso() {
     	return this.peso;
     }
-    public void setPeso(double peso) {
+    public void setPeso(int peso) {
     	this.peso=peso;
     }
     
@@ -97,10 +97,10 @@ public class Vehiculo {
     }
     
     //CantidadVehiculo
-    public void setCantidadVehiculo(int c) {
+    public void setCantidadVehiculos(int c) {
     	Vehiculo.CantidadVehiculos=c;
     }
-    public int getCantidadVehiculo() {
+    public int getCantidadVehiculos() {
     	return Vehiculo.CantidadVehiculos;
     }
     
