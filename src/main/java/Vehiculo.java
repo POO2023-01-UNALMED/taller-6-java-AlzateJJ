@@ -68,12 +68,12 @@ public class Vehiculo {
     public void setPrecio(int precio) {
     	this.precio=precio;
     }
-    public double getPrecio() {
+    public int getPrecio() {
     	return this.precio;
     }
     
     //peso
-    public double getPeso() {
+    public int getPeso() {
     	return this.peso;
     }
     public void setPeso(int peso) {
@@ -101,7 +101,7 @@ public class Vehiculo {
     	Vehiculo.CantidadVehiculos=c;
     }
     public int getCantidadVehiculos() {
-    	return Vehiculo.CantidadVehiculos;
+    	return CantidadVehiculos;
     }
     
     private static void contarTipos(Vehiculo carro) {
