@@ -1,63 +1,42 @@
 package vehiculos;
-import java.util.*;  
+
+import java.util.ArrayList;
 
 public class Fabricante {
-private String nombre;
-private Pais pais;
-
-//Se debe declarar la lista de fabricantes como estática para poder acceder a ella desde el método fabricaMayorVentas
-private static List<String> listaFabricantes = new ArrayList<>();
-
-public Fabricante(String nombre, Pais pais) {
-	this.nombre=nombre;
-	this.pais=pais;
+	protected String nombre;
+	protected Pais pais;
+	int contadorFabrica=0;
+	private static ArrayList<Fabricante> listaFabric = new ArrayList<Fabricante>();
 	
-	listaFabricantes.add(nombre);
-}
-
-
-//nombre
-public void setNombre(String nombre) {
-	this.nombre=nombre;
-}
-public String getNombre() {
-	return this.nombre;
-}
-
-//pais
-public void setPais(Pais pais) {
-	this.pais=pais;
-}
-public Pais getPais() {
-	return this.pais;
-}
-
-//Se debe modificar el método para que encuentre el fabricante que más se repite en la lista de fabricantes
-public static String fabricaMayorVentas() {
-	Map<String, Integer> fabricantes = new HashMap<>();
-	
-	//Se cuenta la cantidad de veces que aparece cada fabricante en la lista
-	for (String fabricante : listaFabricantes) {
-		if (fabricantes.containsKey(fabricante)) {
-			fabricantes.put(fabricante, fabricantes.get(fabricante) + 1);
-		} else {
-			fabricantes.put(fabricante, 1);
-		}
+	public Fabricante(String nombre,Pais pais) {
+		this.nombre=nombre;
+		this.pais=pais;
+		listaFabric.add(this);
 	}
 	
-	//Se busca el fabricante con la mayor cantidad de repeticiones
-	String fabricanteMayorVentas = "";
-	int cantidadMayorVentas = 0;
-	
-	for (Map.Entry<String, Integer> entry : fabricantes.entrySet()) {
-		if (entry.getValue() > cantidadMayorVentas) {
-			cantidadMayorVentas = entry.getValue();
-			fabricanteMayorVentas = entry.getKey();
+	public void setNombre(String nombre) {
+		this.nombre=nombre;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setPais(Pais pais) {
+		this.pais=pais;
+	}
+	public Pais getPais() {
+		return pais;
+	}
+	public static Fabricante fabricaMayorVentas() {
+		int cont=0;
+		Fabricante masVendedora=null;
+		for(Fabricante i:listaFabric) {
+			if(i.contadorFabrica > cont) {
+				cont=i.contadorFabrica;
+				masVendedora=i;
+			}	
 		}
+		return  masVendedora;
 	}
 	
-	return fabricanteMayorVentas;
-}
 
-	
 }

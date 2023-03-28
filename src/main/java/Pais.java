@@ -4,6 +4,8 @@ import java.util.*;
 
 public class Pais {
     
+	int ContadorPais=0;
+	
     private String nombre;
     private static List<Pais> listaPaises = new ArrayList<>();
     
@@ -21,28 +23,16 @@ public class Pais {
         return this.nombre;
     }
     
-    public static String paisMasVendedor() {
-        Map<String, Integer> paises = new HashMap<String, Integer>();
-        for (Pais pais : listaPaises) {
-            String nombre = pais.getNombre();
-            int count = paises.containsKey(nombre) ? paises.get(nombre) : 0;
-            paises.put(nombre, count + 1);
-        }
-
-        List<String> maxPaises = new ArrayList<String>();
-        int maxCount = 0;
-        for (Map.Entry<String, Integer> entry : paises.entrySet()) {
-            int count = entry.getValue();
-            if (count > maxCount) {
-                maxPaises.clear();
-                maxPaises.add(entry.getKey());
-                maxCount = count;
-            } else if (count == maxCount) {
-                maxPaises.add(entry.getKey());
-            }
-        }
-
-        return String.join(", ", maxPaises);
-    }
+    public static Pais paisMasVendedor() {
+		int cont=0;
+		Pais masVendedor=null;
+		for(Pais i:listaPaises) {
+			if(i.ContadorPais > cont) {
+				cont=i.ContadorPais;
+				masVendedor=i;
+			}	
+		}
+		return  masVendedor;
+	}
 
 }
