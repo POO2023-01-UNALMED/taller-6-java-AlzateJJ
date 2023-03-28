@@ -1,29 +1,23 @@
 package vehiculos;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Pais {
-    
+	protected String nombre;
 	int ContadorPais=0;
+	private static ArrayList<Pais> listaPaises = new ArrayList<Pais>();
 	
-    private String nombre;
-    private static List<Pais> listaPaises = new ArrayList<>();
-    
-    public Pais(String nombre) {
-        this.nombre = nombre;
-        listaPaises.add(this);
-    }
-    
-    //Nombre 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    
-    public String getNombre() {
-        return this.nombre;
-    }
-    
-    public static Pais paisMasVendedor() {
+	public Pais(String nombre) {
+		this.nombre=nombre;
+		listaPaises.add(this);
+	}
+	public void setNombre(String nombre) {
+		this.nombre=nombre;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public static Pais paisMasVendedor() {
 		int cont=0;
 		Pais masVendedor=null;
 		for(Pais i:listaPaises) {
@@ -34,5 +28,4 @@ public class Pais {
 		}
 		return  masVendedor;
 	}
-
 }
