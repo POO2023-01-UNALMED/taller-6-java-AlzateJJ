@@ -9,7 +9,7 @@ public class Vehiculo {
     private int peso;
     private String traccion;
     private Fabricante fabricante;
-    private static int CantidadVehiculos;
+    static int CantidadVehiculos;
     
     private static int Camiones;
     private static int Camionetas;
@@ -97,10 +97,10 @@ public class Vehiculo {
     }
     
     //CantidadVehiculo
-    public void setCantidadVehiculos(int c) {
+    public static void setCantidadVehiculos(int c) {
     	Vehiculo.CantidadVehiculos=c;
     }
-    public int getCantidadVehiculos() {
+    public static int getCantidadVehiculos() {
     	return CantidadVehiculos;
     }
     
